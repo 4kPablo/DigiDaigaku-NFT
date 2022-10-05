@@ -1,10 +1,6 @@
-let productsContainer = document.querySelector(".products-container");
+// Store
 
-function randomNumber() {
-    let min = 2;
-    let max = 1337;
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
+let productsContainer = document.querySelector(".products-container");
 
 function renderCard(nft) {
     if (nft != 1) {
@@ -17,7 +13,7 @@ function renderCard(nft) {
             <p class="product-title">DigiDaigaku #${nft.id} - ${nft.name}</p>
             <div class="product-price">
                 <p>Precio</p>
-                <p><i class="fa-brands fa-ethereum"></i>${randomNumber()}</p>
+                <p><i class="fa-brands fa-ethereum"></i>${nft.price}</p>
             </div>
         </div>`
     }
@@ -58,8 +54,9 @@ loginLink.addEventListener('click', () => {
 });
 
 
-// Panel de filtros 
+// Panel de filtros
 
+// Dropdown menus
 function desplegarFiltro(input, arrowdown, arrowup) {
     input.classList.toggle("hidden");
     arrowdown.classList.toggle("hidden");
@@ -84,12 +81,70 @@ nameFilter.addEventListener('click', () => {
     desplegarFiltro(nameFilterInput, nameFilter__arrowdown, nameFilter__arrowup);
 })
 
+// Funcionalidad de los filtros
+
+// Filtro por precio
+let min = document.getElementById("min");
+let max = document.getElementById("max");
+
+min.addEventListener('keypress', (e) => { if (e.key === 'Enter') { filtrarPorPrecioMinimo(min.value) } })
+max.addEventListener('keypress', (e) => { if (e.key === 'Enter') { filtrarPorPrecioMáximo(max.value) } })
+
+function filtrarPorPrecioMinimo(price) {
+    limpiarCards();
+    products.forEach(nft => {
+        if (nft.price > price) {
+            renderCard(nft);
+        }
+    });
+}
+
+function filtrarPorPrecioMáximo(price) {
+    limpiarCards();
+    products.forEach(nft => {
+        if (nft.price < price) {
+            renderCard(nft);
+        }
+    });
+}
+
+function limpiarCards() {
+    products.forEach(nft => {
+        const element = document.querySelector('.product-card');
+        if (element != null) {
+            element.remove();
+        }
+    });
+}
+// Filtro por nombre
+let miya = document.getElementById("Miya");
+let rina = document.getElementById("Rina");
+let aubreeanna = document.getElementById("Aubreeanna");
+let yeeun = document.getElementById("Yeeun");
+let kotoko = document.getElementById("Kotoko");
+let sinead = document.getElementById("Sinead");
+let ataya = document.getElementById("Ataya");
+let jiaYi = document.getElementById("JiaYi");
+let zhiLei = document.getElementById("ZhiLei");
+
+miya.addEventListener('click', () => { filtrarPorNombre("Miya") });
+rina.addEventListener('click', () => { filtrarPorNombre("Rina") });
+aubreeanna.addEventListener('click', () => { filtrarPorNombre("Aubreeanna") });
+yeeun.addEventListener('click', () => { filtrarPorNombre("Yeeun") });
+kotoko.addEventListener('click', () => { filtrarPorNombre("Kotoko") });
+sinead.addEventListener('click', () => { filtrarPorNombre("Sinead") });
+ataya.addEventListener('click', () => { filtrarPorNombre("Ataya") });
+jiaYi.addEventListener('click', () => { filtrarPorNombre("JiaYi") });
+zhiLei.addEventListener('click', () => { filtrarPorNombre("ZhiLei") });
+
+function filtrarPorNombre(name) {
+    limpiarCards();
+    products.forEach(nft => {
+        if (nft.name == name) {
+            renderCard(nft);
+        }
+    });
+}
 
 
-// function mostrar(elemento) {
-//     elemento.classList.remove("hidden");
-// }
 
-// function ocultar(elemento) {
-//     elemento.classList.add("hidden");
-// }

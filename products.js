@@ -7,6 +7,7 @@ const products = [{
     name: "Miya",
     outfit: "Winter",
     prop: null,
+    price: 9.1347,
 }, {
     id: 2,
     accessory: null,
@@ -16,6 +17,7 @@ const products = [{
     name: "Rina",
     outfit: "Astronaut",
     prop: null,
+    price: 9.1347,
 }, {
     id: 3,
     accessory: null,
@@ -25,6 +27,7 @@ const products = [{
     name: "Aubreeanna",
     outfit: "Steampunk",
     prop: "Skateboard",
+    price: 9.1347,
 }, {
     id: 4,
     accessory: null,
@@ -34,6 +37,7 @@ const products = [{
     name: "Aubreeanna",
     outfit: "Steampunk",
     prop: "Skateboard",
+    price: 8.6001,
 }, {
     id: 5,
     accessory: null,
@@ -43,6 +47,7 @@ const products = [{
     name: "Yeeun",
     outfit: "Steampunk",
     prop: "Cell phone",
+    price: 8.6001,
 }, {
     id: 6,
     accessory: "Headphones",
@@ -52,6 +57,7 @@ const products = [{
     name: "Kotoko",
     outfit: "Kotoko",
     prop: "Skateboard",
+    price: 9.1348,
 }, {
     id: 7,
     accessory: null,
@@ -61,6 +67,7 @@ const products = [{
     name: "Sinead",
     outfit: "Steampunk",
     prop: "Lolipop",
+    price: 9.1348,
 }, {
     id: 8,
     accessory: null,
@@ -70,6 +77,7 @@ const products = [{
     name: "Ataya",
     outfit: "French maid",
     prop: "Teddy bear",
+    price: 9.1348,
 }, {
     id: 9,
     accessory: null,
@@ -80,6 +88,7 @@ const products = [{
     outfit: "Kimono",
     prop: "Mic",
     prop2: "Cellphone",
+    price: 8.6001,
 }, {
     id: 10,
     accessory: null,
@@ -89,14 +98,55 @@ const products = [{
     name: "ZhiLei",
     outfit: "Hip hop",
     prop: "Skateboard",
+    price: 9.1348,
+}, {
+    id: 11,
+    accessory: "Pet shop",
+    background: "Steampunk",
+    expression: "Brown eyes",
+    hairstyle: "Short bob",
+    name: "Mayo",
+    outfit: "Steampunk",
+    prop: null,
+    price: 9.1345,
+}, {
+    id: 12,
+    accessory: null,
+    background: "Casino",
+    expression: "Gaze close",
+    hairstyle: "Europop",
+    name: "Candice",
+    outfit: "Summer",
+    prop: "Mic",
+    price: 8.6001,
+}, {
+    id: 13,
+    accessory: null,
+    background: "Amai",
+    expression: "Brown eyes",
+    hairstyle: "Double ponies",
+    name: "Paige",
+    outfit: "French maid",
+    prop: "Skateboard",
+    price: 9.1346,
+}, {
+    id: 14,
+    accessory: "Headphones",
+    background: "Casino",
+    expression: "Brown eyes",
+    hairstyle: "Short bob",
+    name: "Hyesu",
+    outfit: "Summer",
+    prop: "Boba tea",
+    price: 9.1346,
+}, {
+    id: 15,
+    accessory: null,
+    background: "Sun & mucha",
+    expression: "Gaze afar",
+    hairstyle: "Europop",
+    name: "HuiQing",
+    outfit: "Qipao",
+    prop: null,
+    price: 8.6001,
 }]
-    // }, {
-//     id: 11,
-//     accessory: ,
-//     background: ,
-//     expression: ,
-//     hairstyle: ,
-//     name: ,
-//     outfit: ,
-//     prop: null,
-// }]
