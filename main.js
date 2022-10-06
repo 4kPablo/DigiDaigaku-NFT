@@ -81,8 +81,6 @@ nameFilter.addEventListener('click', () => {
     desplegarFiltro(nameFilterInput, nameFilter__arrowdown, nameFilter__arrowup);
 })
 
-// Funcionalidad de los filtros
-
 // Filtro por precio
 let min = document.getElementById("min");
 let max = document.getElementById("max");
@@ -116,6 +114,7 @@ function limpiarCards() {
         }
     });
 }
+
 // Filtro por nombre
 let miya = document.getElementById("Miya");
 let rina = document.getElementById("Rina");

@@ -13,9 +13,12 @@
     transition: ease 200ms;
 }
 
-body {
+body#index {
     background-color: var(--salmon);
-    overflow-x: hidden;
+}
+
+body#store {
+    background-color: #fce4dc;
 }
 
 @mixin main-container {
@@ -27,7 +30,7 @@ body {
 
 .super-container1 {
     @include main-container();
-    background-color: #fcbcd6
+    background-color: #fcbcd6;
 }
 
 .super-container2 {
@@ -43,6 +46,7 @@ body {
 
     @media only screen and (max-width: 580px) {
         flex-direction: column;
+        width: 100vw;
     }
 }
 
@@ -191,8 +195,10 @@ body {
         gap: 4em;
 
         .hero-left {
-            // outline: 1px red solid;
-            width: 40em;
+            @media only screen and (min-width: 1000px) {
+                width: 40em;
+            }
+
 
             h2 {
                 align-self: center;
@@ -202,11 +208,42 @@ body {
 
         .hero-right {
             display: flex;
-            // outline: 1px red solid;
 
             img {
                 height: 20em;
                 border-radius: 1em;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 1000px) {
+
+        .top-bar {
+            width: 100%;
+        }
+
+        .hero-logo {
+            display: none;
+        }
+
+        .hero-section {
+            flex-direction: column-reverse;
+
+            .hero-left {
+                padding: 1em;
+                margin-top: 5em;
+            }
+
+            .hero-right {
+                padding: 1em;
+                justify-content: center;
+
+                img {
+                    position: absolute;
+                    top: 4em;
+                    height: 15em;
+                    margin: 0%;
+                }
             }
         }
     }
@@ -321,12 +358,28 @@ body {
 
     @media only screen and (max-width: 580px) {
         position: relative;
-        width: 100%;
         height: min-content;
+        width: 100%;
 
         .filter {
+            justify-content: space-around;
             width: 100vw;
             margin: 0;
+        }
+
+        .name-filter__input {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            p {
+                margin: 1em;
+            }
+        }
+
+        .price-filter__input input {
+            width: 8em;
+            padding: 10px;
         }
     }
 }
@@ -389,6 +442,7 @@ body {
     @media only screen and (max-width: 580px) {
         margin: 0;
         width: 87vw;
+        height: auto;
 
         .product-card {
             flex-direction: row;
@@ -518,6 +572,12 @@ body {
             text-decoration: none;
             color: black;
         }
+    }
+
+    @media only screen and (max-width: 500px) {
+        margin-top: 1em;
+        position: relative;
+        flex-direction: column;
     }
 }
 

@@ -12,9 +12,12 @@
   transition: ease 200ms;
 }
 
-body {
+body#index {
   background-color: var(--salmon);
-  overflow-x: hidden;
+}
+
+body#store {
+  background-color: #fce4dc;
 }
 
 .super-container1 {
@@ -42,6 +45,7 @@ body {
 @media only screen and (max-width: 580px) {
   .store_main-container {
     flex-direction: column;
+    width: 100vw;
   }
 }
 
@@ -257,8 +261,10 @@ body {
   display: flex;
   gap: 4em;
 }
-.hero .hero-section .hero-left {
-  width: 40em;
+@media only screen and (min-width: 1000px) {
+  .hero .hero-section .hero-left {
+    width: 40em;
+  }
 }
 .hero .hero-section .hero-left h2 {
   align-self: center;
@@ -270,6 +276,31 @@ body {
 .hero .hero-section .hero-right img {
   height: 20em;
   border-radius: 1em;
+}
+@media only screen and (max-width: 1000px) {
+  .hero .top-bar {
+    width: 100%;
+  }
+  .hero .hero-logo {
+    display: none;
+  }
+  .hero .hero-section {
+    flex-direction: column-reverse;
+  }
+  .hero .hero-section .hero-left {
+    padding: 1em;
+    margin-top: 5em;
+  }
+  .hero .hero-section .hero-right {
+    padding: 1em;
+    justify-content: center;
+  }
+  .hero .hero-section .hero-right img {
+    position: absolute;
+    top: 4em;
+    height: 15em;
+    margin: 0%;
+  }
 }
 
 .bottom-bar_img {
@@ -364,14 +395,27 @@ body {
 @media only screen and (max-width: 580px) {
   .filter-container {
     position: relative;
-    width: 100%;
     height: -webkit-min-content;
     height: -moz-min-content;
     height: min-content;
+    width: 100%;
   }
   .filter-container .filter {
+    justify-content: space-around;
     width: 100vw;
     margin: 0;
+  }
+  .filter-container .name-filter__input {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .filter-container .name-filter__input p {
+    margin: 1em;
+  }
+  .filter-container .price-filter__input input {
+    width: 8em;
+    padding: 10px;
   }
 }
 
@@ -428,6 +472,7 @@ body {
   .products-container {
     margin: 0;
     width: 87vw;
+    height: auto;
   }
   .products-container .product-card {
     flex-direction: row;
@@ -538,6 +583,13 @@ body {
 .footer-container .footer-item a {
   text-decoration: none;
   color: black;
+}
+@media only screen and (max-width: 500px) {
+  .footer-container {
+    margin-top: 1em;
+    position: relative;
+    flex-direction: column;
+  }
 }
 
 .hidden {
