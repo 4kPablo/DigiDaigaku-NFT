@@ -35,7 +35,16 @@
             <li><a href="#" class="loguearse-nav-link">Logearse</a></li>
         </ul>
 
-        <i class="nav-item burger-menu fa-solid fa-bars fa-xl"></i>
+        <i class="nav-item burger-icon fa-solid fa-bars fa-xl"></i>
+
+        <div class="burger-menu-panel hidden">
+            <div class="burger-menu">
+                <li><a href="./store.html">Tienda</a></li>
+                <li><a href="#" class="carrito-nav-link">Carrito</a></li>
+                <li><a href="#" class="loguearse-nav-link">Logearse</a></li>
+            </div>
+        </div>
+
     </nav>
 
     <div class="login-panel hidden">
@@ -44,10 +53,10 @@
         <form class="login-form">
             <h3>Accede a tu cuenta</h3>
             <label for="email"> Correo electrónico </label>
-            <input class="form-input-text" id="email" type="email" placeholder="Email">
+            <input class="form-input-text" id="login-email" type="email" placeholder="Email">
 
             <label for="pass"> Contraseña </label>
-            <input class="form-input-text" id="pass" type="password" placeholder="Contraseña">
+            <input class="form-input-text" id="login-pass" type="password" placeholder="Contraseña">
             <div class="form-buttons">
                 <input class="form-enviar" type="submit" value="Acceder">
                 <a class="form-link" id="register-link" href="#">¿No tiene cuenta?</a>
@@ -163,6 +172,7 @@
 
 </body>
 <script src="./products.js"></script>
-<script src="./main.js"></script>
+<script src="./nav.js"></script>
+<script src="./store.js"></script>
 
 </html>

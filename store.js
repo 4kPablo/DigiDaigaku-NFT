@@ -24,36 +24,6 @@ products.forEach(nft => {
 });
 
 
-// Login
-
-let loginPanel = document.querySelector(".login-panel")
-let loginCloseButton = document.querySelector(".login-panel--close");
-let loginNavLink = document.querySelector(".loguearse-nav-link");
-
-loginNavLink.addEventListener('click', () => {
-    loginPanel.classList.remove("hidden");
-});
-
-loginCloseButton.addEventListener('click', () => {
-    loginPanel.classList.add("hidden");
-});
-
-let loginForm = document.querySelector(".login-form");
-let registerForm = document.querySelector(".register-form");
-let registerLink = document.getElementById("register-link");
-let loginLink = document.getElementById("login-link");
-
-registerLink.addEventListener('click', () => {
-    loginForm.classList.add("hidden");
-    registerForm.classList.remove("hidden");
-});
-
-loginLink.addEventListener('click', () => {
-    registerForm.classList.add("hidden");
-    loginForm.classList.remove("hidden");
-});
-
-
 // Panel de filtros
 
 // Dropdown menus
@@ -144,6 +114,3 @@ function filtrarPorNombre(name) {
         }
     });
 }
-
-
-
