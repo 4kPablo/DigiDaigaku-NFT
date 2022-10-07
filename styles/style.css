@@ -620,6 +620,20 @@ body#store {
   padding-left: 10px;
   color: var(--accent);
 }
+@media only screen and (max-width: 580px) {
+  .login-panel {
+    width: 100%;
+  }
+  .login-panel .login-form {
+    margin: auto;
+  }
+  .login-panel form .form-input-text {
+    padding: 9px;
+  }
+  .login-panel form .form-buttons .form-enviar {
+    height: 2.3em;
+  }
+}
 
 .footer-container {
   display: flex;

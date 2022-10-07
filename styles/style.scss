@@ -583,6 +583,26 @@ body#store {
             }
         }
     }
+
+    @media only screen and (max-width: 580px) {
+        width: 100%;
+
+        .login-form {
+            margin: auto;
+        }
+
+        form {
+            .form-input-text {
+                padding: 9px;
+            }
+
+            .form-buttons {
+                .form-enviar {
+                    height: 2.3em;
+                }
+            }
+        }
+    }
 }
 
 .footer-container {

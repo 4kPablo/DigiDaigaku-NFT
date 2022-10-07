@@ -12,9 +12,14 @@ burgerIcon.addEventListener('click', () => {
 
 let loginPanel = document.querySelector(".login-panel")
 let loginCloseButton = document.querySelector(".login-panel--close");
-let loginNavLink = document.querySelector(".loguearse-nav-link");
+let loginNavLink1 = document.querySelector(".loguearse-nav-link1");
+let loginNavLink2 = document.querySelector(".loguearse-nav-link2");
 
-loginNavLink.addEventListener('click', () => {
+loginNavLink1.addEventListener('click', () => {
+    loginPanel.classList.remove("hidden");
+});
+
+loginNavLink2.addEventListener('click', () => {
     loginPanel.classList.remove("hidden");
 });
 
