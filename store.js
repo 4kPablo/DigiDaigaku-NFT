@@ -1,22 +1,23 @@
 // Store
 
 let productsContainer = document.querySelector(".products-container");
+let renderedProducts = [];
 
 function renderCard(nft) {
-    if (nft != 1) {
-        const div = document.createElement("div");
-        div.classList.add("product-card");
-        productsContainer.append(div);
-        div.innerHTML = `
+    const div = document.createElement("div");
+    div.classList.add("product-card");
+    div.setAttribute('id', nft.id);
+    productsContainer.append(div);
+    div.innerHTML = `
         <img src="./img/NFTs/${nft.id}.png">
         <div class="product-text">
             <p class="product-title">DigiDaigaku #${nft.id} - ${nft.name}</p>
             <div class="product-price">
                 <p>Precio</p>
-                <p><i class="fa-brands fa-ethereum"></i>${nft.price}</p>
+                <p class="price"><i class="fa-brands fa-ethereum"></i>${nft.price}</p>
             </div>
         </div>`
-    }
+    renderedProducts.push(nft.id);
 }
 
 products.forEach(nft => {
@@ -77,6 +78,7 @@ function filtrarPorPrecioMáximo(price) {
 }
 
 function limpiarCards() {
+    renderedProducts = [];
     products.forEach(nft => {
         const element = document.querySelector('.product-card');
         if (element != null) {
@@ -96,7 +98,7 @@ let ataya = document.getElementById("Ataya");
 let jiaYi = document.getElementById("JiaYi");
 let zhiLei = document.getElementById("ZhiLei");
 
-miya.addEventListener('click', () => { filtrarPorNombre("Miya") });
+miya.addEventListener('click', () => { filtrarPorNombre("Miya"); });
 rina.addEventListener('click', () => { filtrarPorNombre("Rina") });
 aubreeanna.addEventListener('click', () => { filtrarPorNombre("Aubreeanna") });
 yeeun.addEventListener('click', () => { filtrarPorNombre("Yeeun") });
@@ -113,4 +115,5 @@ function filtrarPorNombre(name) {
             renderCard(nft);
         }
     });
+    escucharClickEnProducto();
 }
