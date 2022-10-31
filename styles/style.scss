@@ -667,9 +667,10 @@ body#store {
                     margin-right: 5px;
                 }
 
-                .product-quantity {
+                .product-priceanddelete {
                     display: flex;
                     align-items: center;
+                    justify-content: space-between;
                     gap: 4px;
 
                     .product-price {
@@ -680,7 +681,7 @@ body#store {
                         cursor: pointer;
 
                         &:hover {
-                            color: white;
+                            color: red;
                         }
                     }
                 }
@@ -703,6 +704,16 @@ body#store {
         width: 18em;
         display: flex;
         justify-content: space-between;
+        padding: 1em 0;
+
+        p {
+            display: flex;
+            margin: 0;
+        }
+
+        .price {
+            padding-left: 10px;
+        }
     }
 
     .buy-button {

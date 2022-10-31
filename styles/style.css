@@ -694,19 +694,20 @@ body#store {
 .cart-panel .cart-products-container .cart-product .product-text .fa-ethereum {
   margin-right: 5px;
 }
-.cart-panel .cart-products-container .cart-product .product-text .product-quantity {
+.cart-panel .cart-products-container .cart-product .product-text .product-priceanddelete {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 4px;
 }
-.cart-panel .cart-products-container .cart-product .product-text .product-quantity .product-price {
+.cart-panel .cart-products-container .cart-product .product-text .product-priceanddelete .product-price {
   margin-right: 8px;
 }
-.cart-panel .cart-products-container .cart-product .product-text .product-quantity i {
+.cart-panel .cart-products-container .cart-product .product-text .product-priceanddelete i {
   cursor: pointer;
 }
-.cart-panel .cart-products-container .cart-product .product-text .product-quantity i:hover {
-  color: white;
+.cart-panel .cart-products-container .cart-product .product-text .product-priceanddelete i:hover {
+  color: red;
 }
 .cart-panel .cart-products-container .cart-product .product-text p,
 .cart-panel .cart-products-container .cart-product .product-text i {
@@ -721,6 +722,14 @@ body#store {
   width: 18em;
   display: flex;
   justify-content: space-between;
+  padding: 1em 0;
+}
+.cart-panel .total p {
+  display: flex;
+  margin: 0;
+}
+.cart-panel .total .price {
+  padding-left: 10px;
 }
 .cart-panel .buy-button {
   width: 18em;
