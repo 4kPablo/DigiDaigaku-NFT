@@ -52,6 +52,7 @@ function escucharClickEnProducto() {
                         // (Olvidé que los NFT no se pueden duplicar =_=💧)
                     } else {
                         carrito.push(producto);
+                        guardarEnLocalStorage(producto, producto.id);
                         renderizarCarrito(producto.id, producto.name, producto.price);
                     }
                 }
@@ -59,6 +60,24 @@ function escucharClickEnProducto() {
         })
     })
 }
+
+function guardarEnLocalStorage(producto, id) {
+    localStorage.setItem('itemDeCarrito' + id, JSON.stringify(producto));
+}
+
+function recuperarDeLocalStorage() {
+    let aaa;
+    for (let i = 0; i < localStorage.length; i++) {
+        aaa = JSON.parse(localStorage.getItem('itemDeCarrito' + i));
+        if (aaa == !null) {
+            console.log(aaa);
+        }
+    }
+}
+
+document.addEventListener('click', () => {
+    recuperarDeLocalStorage()
+})
 
 function renderizarCarrito(id, name, price) {
     const div = document.createElement("div");
@@ -101,17 +120,13 @@ function actualizarPrecio() {
     totalElement.innerHTML = `<i class="fa-brands fa-ethereum"></i><p class="price"> ${total}</p>`;
 }
 
-document.addEventListener('click', () => {
-    deleteProductHandler();
-    actualizarCarrito()
-})
-
 function deleteProductHandler() {
     window.onclick = e => {
         let targetId = e.target.id;
         carrito.forEach(element => {
             if (element.id == targetId) {
                 carrito = carrito.filter(function (item) { return item.id != targetId });
+                localStorage.removeItem('itemDeCarrito' + element.id);
                 deleteProductFromHTML(targetId);
             }
         })
@@ -125,6 +140,11 @@ function deleteProductFromHTML(id) {
     actualizarPrecio();
     actualizarCarrito()
 }
+
+document.addEventListener('click', () => {
+    deleteProductHandler();
+    actualizarCarrito()
+})
 
 buyButton.addEventListener('click', () => {
     alert("COMPRA REALIZADA.\nLos NFT fueron transferidos a la wallet asociada a su cuenta.");
