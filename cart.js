@@ -12,72 +12,85 @@ function ProductoEnCarrito(id, name, price) {
     this.price = price;
 }
 
-// carrito.push(card.querySelector(".product-title").textContent);
-// let producto = new ProductoEnCarrito(
-//     card.querySelector(".product-title").textContent,
-//     card.querySelector(".price").textContent,
-//     1
-// )
-
-escucharClickEnProducto();
-
-function escucharClickEnProducto() {
-    renderedProducts.forEach(product => {   // Bucle por los productos renderizados
-        let card = document.getElementById(product);    // Selecciona cada producto del bucle
-        card.addEventListener('click', () => {    // Al hacer click en el producto seleccionado...
-            products.forEach(nft => {    // ...empieza otro bucle pero entre TODOS los productos de products.js
-                if (card.id == nft.id) {
-                    let producto = new ProductoEnCarrito(
-                        nft.id,
-                        nft.name,
-                        nft.price);
-
-                    let productoDuplicado = false;
-                    carrito.forEach(producto => {
-                        if (producto.id == nft.id) {
-                            productoDuplicado = true;
-                        }
-                    })
-
-                    if (productoDuplicado) {
-                        alert('Ese producto ya fue agregado al carrito.\nLos NFT no son duplicables.');
-                        // carrito.forEach(item => {
-                        //     if (item.id == producto.id) {
-                        //         item.price = item.price + nft.price;
-                        //         item.quantity++;
-                        //         console.log(carrito);
-                        //         actualizarCarrito(producto.id, producto);
-                        //     }
-                        // });
-                        // (Olvidé que los NFT no se pueden duplicar =_=💧)
-                    } else {
-                        carrito.push(producto);
-                        guardarEnLocalStorage(producto, producto.id);
-                        renderizarCarrito(producto.id, producto.name, producto.price);
-                    }
-                }
-            })
-        })
-    })
-}
-
-function guardarEnLocalStorage(producto, id) {
-    localStorage.setItem('itemDeCarrito' + id, JSON.stringify(producto));
-}
-
-function recuperarDeLocalStorage() {
-    let aaa;
-    for (let i = 0; i < localStorage.length; i++) {
-        aaa = JSON.parse(localStorage.getItem('itemDeCarrito' + i));
-        if (aaa == !null) {
-            console.log(aaa);
+window.addEventListener('load', () => {
+    for (let i = 0; i <= products.length; i++) {
+        if (typeof loadWaifu()[i] !== "undefined") {
+            renderizarCarrito(
+                loadWaifu()[i].id,
+                loadWaifu()[i].name,
+                loadWaifu()[i].price)
         }
+    };
+    recuperarCarrito();
+    actualizarPrecio();
+});
+
+document.addEventListener('click', () => {
+    deleteProductHandler();
+    actualizarCarrito();
+})
+
+function recuperarCarrito() {
+    if (loadWaifu()[0] != null) {
+        carrito = carrito.concat(loadWaifu());
+        return carrito;
     }
 }
 
-document.addEventListener('click', () => {
-    recuperarDeLocalStorage()
+
+renderedProducts.forEach(product => {   // Bucle por los productos renderizados
+    let card = document.getElementById(product);    // Selecciona cada producto del bucle
+    card.addEventListener('click', () => {    // Al hacer click en el producto seleccionado...
+        products.forEach(nft => {    // ...empieza otro bucle pero entre TODOS los productos de products.js
+            if (card.id == nft.id) {
+                let producto = new ProductoEnCarrito(
+                    nft.id,
+                    nft.name,
+                    nft.price);
+
+                let productoDuplicado = false;
+                carrito.forEach(producto => {
+                    if (producto.id == nft.id) {
+                        productoDuplicado = true;
+                    }
+                })
+
+                if (productoDuplicado) {
+                    alert('Ese producto ya fue agregado al carrito.\nLos NFT no son duplicables.');
+                    // carrito.forEach(item => {
+                    //     if (item.id == producto.id) {
+                    //         item.price = item.price + nft.price;
+                    //         item.quantity++;
+                    //         console.log(carrito);
+                    //         actualizarCarrito(producto.id, producto);
+                    //     }
+                    // });
+                    // (Olvidé que los NFT no se pueden duplicar =_=💧)
+                } else {
+                    carrito.push(producto);
+                    saveWaifu(producto, producto.id);
+                    renderizarCarrito(producto.id, producto.name, producto.price);
+                }
+            }
+        })
+    })
 })
+
+function saveWaifu(producto, id) {
+    localStorage.setItem('itemDeCarrito' + id, JSON.stringify(producto));
+}
+
+function loadWaifu() {
+    let item;
+    let carritoEnMemoria = [];
+    for (let i = 0; i <= products.length; i++) {
+        item = JSON.parse(localStorage.getItem('itemDeCarrito' + i));
+        if (item != null) {
+            carritoEnMemoria.push(item);
+        }
+    }
+    return carritoEnMemoria;
+}
 
 function renderizarCarrito(id, name, price) {
     const div = document.createElement("div");
@@ -138,13 +151,8 @@ function deleteProductFromHTML(id) {
     const element = document.querySelector(selector);
     element.remove();
     actualizarPrecio();
-    actualizarCarrito()
+    actualizarCarrito();
 }
-
-document.addEventListener('click', () => {
-    deleteProductHandler();
-    actualizarCarrito()
-})
 
 buyButton.addEventListener('click', () => {
     alert("COMPRA REALIZADA.\nLos NFT fueron transferidos a la wallet asociada a su cuenta.");
